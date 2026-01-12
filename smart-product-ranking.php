@@ -95,14 +95,18 @@ class Smart_Product_Ranking {
         require_once SPR_PLUGIN_DIR . 'includes/class-spr-query-modifier.php';
         require_once SPR_PLUGIN_DIR . 'includes/class-spr-admin.php';
         require_once SPR_PLUGIN_DIR . 'includes/class-spr-semantic-matcher.php';
+        require_once SPR_PLUGIN_DIR . 'includes/class-spr-background-recalculator.php';
     }
     
     private function init_hooks() {
         // Ініціалізація трекера поведінки
         SPR_Tracker::get_instance();
-        
+
         // Ініціалізація модифікатора запитів
         SPR_Query_Modifier::get_instance();
+
+        // Ініціалізація фонового перерахунку
+        SPR_Background_Recalculator::get_instance();
         
         // Адмін панель
         if (is_admin()) {
